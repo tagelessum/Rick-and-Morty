@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./CharacterList.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap';
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
 //Importing Character component
 import Character from '../Character/Character.js';
 
@@ -27,7 +27,7 @@ class CharacterList extends React.Component {
   handleOnInputChange(e){
     console.log(e.target.value);
     this.setState({
-      displayedChar: this.state.characters.filter(c => c.name.includes(e.target.value))
+      displayedChar: this.state.characters.filter(s => s.name.includes(e.target.value))
     });
   }
 
@@ -54,16 +54,20 @@ class CharacterList extends React.Component {
     const characters = this.state.displayedChar.map(character => {
       // This should render Character components. - Remember the key.
       return (
-        <div>
-          <Card className={styles.container_div}>
-            <Card.Img style={{height: '15rem'}} src={character.image} alt={character.name} />
-            <Card.Title className="mx-auto">{character.name}</Card.Title>  
-            <Card.Text className="mx-auto">{character.status}</Card.Text>
-            <Card.Text className="mx-auto">{character.species}</Card.Text>
-            <Button variant="outline-primary" className="mx-3" >Details</Button>
-          <br></br>
-        </Card >
-       </div>
+        <div className="character"  >
+          <Character s={character}/>
+        </div>
+
+      //   <div>
+      //     <Card className={styles.container_div}>
+      //       <Card.Img style={{height: '15rem'}} src={character.image} alt={character.name} />
+      //       <Card.Title className="mx-auto">{character.name}</Card.Title>  
+      //       <Card.Text className="mx-auto">{character.status}</Card.Text>
+      //       <Card.Text className="mx-auto">{character.species}</Card.Text>
+      //       <Button variant="outline-primary" className="mx-3" >Details</Button>
+      //     <br></br>
+      //   </Card >
+      //  </div>
       );
     });
 
@@ -74,26 +78,21 @@ class CharacterList extends React.Component {
             <Navbar.Brand className={styles.navbar_brand}>Rick n Mortay Task</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text>
-              <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
-                <i class="fas fa-search" aria-hidden="true"></i>
+              <form className="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+                <i className="fas fa-search" aria-hidden="true"></i>
                 <input
-                 class="form-control form-control-sm ml-3 w-75"
+                 className="form-control form-control-sm ml-3 w-75"
                  type="text"
                  placeholder="Search"
                  aria-label="Search"
                  onChange={this.handleOnInputChange}
                  />
               </form>
-              {/* <input type="text"
-                className={styles.searchBar}
-                placeholder="Search"
-                onChange={this.handleOnInputChange}
-              /> */}
               </Navbar.Text>
             </Navbar.Collapse>
           </Navbar>
-          <br></br>
-          <br></br>
+            <br></br>
+            <br></br>
           <div className={styles.char}>{characters}</div>
         </div>
     );
