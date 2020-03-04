@@ -1,6 +1,10 @@
 import React from 'react';
 import Episode from '../Episode/Episode.js';
 import Bio from '../Bio/Bio.js';
+//import {Card, Button, Jumbotron} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import styles from "./HomePage.module.css";
 
 class HomePage extends React.Component {
 
@@ -21,7 +25,6 @@ async componentDidMount() {
         let chars = [...this.state.numberOfApperances];
         chars.push(...response.episode);
   
-
         this.setState({
             character:response,
             numberOfApperances:chars
@@ -36,24 +39,22 @@ async componentDidMount() {
   render() {
     const episodes = this.state.numberOfApperances.map(episode =>{
         return(
-            <div>
+            <div className={styles.e_container}>
                 <Episode e={episode}></Episode>
-                <br></br>
             </div>
         );
     });
 
     return (
         <div>
-            <div>
-            <div>
+            <div className={styles.background_div}>
                 <Bio b={this.state.character}></Bio>
                 <br></br>
-                <h2>Episode Apperances</h2>
             </div>
-            <div>
+
+            <div className={styles.episode_card}>
+            <h2 className={styles.homepage_h2}>Number of episodes</h2>
                 {episodes}
-            </div>
             </div>
         </div>
     );

@@ -1,0 +1,13 @@
+.character {
+    display: flex;
+}
+
+.character_card {
+    width: 18rem;
+    padding: 10px;
+}
+
+img {
+    max-width: 18rem;
+    text-align: center;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./Episode.module.css";
 
 class Episode extends React.Component{
    
@@ -7,11 +8,9 @@ class Episode extends React.Component{
     };
     async componentDidMount() {
         try{
-            const epurl = this.props.e;
-            const url ="https://cors-anywhere.herokuapp.com/" + epurl ;
-            
-            const response = await fetch(url).then(resp => resp.json());
-            console.log(response);
+            const episodeurl = this.props.e;
+            const URL ="https://cors-anywhere.herokuapp.com/" + episodeurl ; 
+            const response = await fetch(URL).then(resp => resp.json());
             this.setState({
                 apperance:response
             })
@@ -23,23 +22,19 @@ class Episode extends React.Component{
 
     render(){
         return(
-            <div className="tile">
-               <div className="card">
-                    <header className="card-header is-centered">
-                        <h1 className="card-header-title is-centered">
-                            {this.state.apperance.episode}
-                        </h1>
-                        
-                    </header>
-                    <div className="card-content">
-                        <div className="container">
-                            <p>{this.state.apperance.name}</p>
-                            <br></br>
-                            <p>Air date: {this.state.apperance.air_date}</p>
-                        </div>
-                    </div>
+           <div className="container">
+            <div className={styles.episode_wrapper}>
+            <div className="card mx-auto">
+                <div className="card-body">
+                    Episode: {this.state.apperance.episode}
+                </div>  
+                <div className="card-body">
+                    <p className="card-text">Episode name: {this.state.apperance.name}</p>
+                    <p className="card-text">On tv:  {this.state.apperance.air_date}</p>
                 </div>
-                </div>
+            </div>
+            </div>
+            </div>
         );
     }
 }

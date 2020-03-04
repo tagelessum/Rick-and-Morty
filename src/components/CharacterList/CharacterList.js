@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap';
 // import Card from "react-bootstrap/Card";
 // import Button from "react-bootstrap/Button";
-//Importing Character component
+// Importing Character component
 import Character from '../Character/Character.js';
 
 // Constant To store API url.
@@ -25,7 +25,6 @@ class CharacterList extends React.Component {
   };
 
   handleOnInputChange(e){
-    console.log(e.target.value);
     this.setState({
       displayedChar: this.state.characters.filter(s => s.name.includes(e.target.value))
     });
@@ -54,41 +53,35 @@ class CharacterList extends React.Component {
     const characters = this.state.displayedChar.map(character => {
       // This should render Character components. - Remember the key.
       return (
-        <div className="character"  >
+        <div className={styles.card_list}>
           <Character s={character}/>
         </div>
-
-      //   <div>
-      //     <Card className={styles.container_div}>
-      //       <Card.Img style={{height: '15rem'}} src={character.image} alt={character.name} />
-      //       <Card.Title className="mx-auto">{character.name}</Card.Title>  
-      //       <Card.Text className="mx-auto">{character.status}</Card.Text>
-      //       <Card.Text className="mx-auto">{character.species}</Card.Text>
-      //       <Button variant="outline-primary" className="mx-3" >Details</Button>
-      //     <br></br>
-      //   </Card >
-      //  </div>
       );
     });
 
     // Render MUST return valid JSX.
     return (
         <div className={styles.CharacterList}>
-           <Navbar bg="light" variant="light">
+           <Navbar bg="dark" variant="dark">
+            <Navbar.Brand>
+              <img
+                  src="https://firebasestorage.googleapis.com/v0/b/jquerypost.appspot.com/o/Webp.net-gifmaker.gif?alt=media&token=5e757ae8-fd07-46cf-a7e0-225c8b835aef"
+                  alt="Crig Marais"
+                  width="50"
+                  height="50"
+                  className="d-inline-block align-top ml-5"
+              />
+            </Navbar.Brand>
             <Navbar.Brand className={styles.navbar_brand}>Rick n Mortay Task</Navbar.Brand>
-            <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-              <form className="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
-                <i className="fas fa-search" aria-hidden="true"></i>
+            <Navbar.Collapse className="justify-content-end">   
                 <input
-                 className="form-control form-control-sm ml-3 w-75"
+                 className={styles.searchBar}
                  type="text"
+                 //img src="https://img.icons8.com/doodle/48/000000/search--v1.png"
                  placeholder="Search"
-                 aria-label="Search"
+                //  aria-label="Search"
                  onChange={this.handleOnInputChange}
                  />
-              </form>
-              </Navbar.Text>
             </Navbar.Collapse>
           </Navbar>
             <br></br>

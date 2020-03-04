@@ -1,0 +1,10 @@
+.test_card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.episode_wrapper {
+    max-width: 300px;
+    margin: auto;
+}
+

@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 .CharacterList {
-    min-height: 100vh;
+    height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
     background-image: url("../../assets/rick_and_morty.jpg");
@@ -19,12 +19,18 @@ h1 {
     justify-content: center;
 }
 .searchBar {
-    margin-right: 120px;
+    margin-right: 130px;
 }
+
 .navbar_style {
     background-color: black;
 }
 
 .navbar_brand {
     margin-left: 130px;
+}
+.card_list {
+    margin: 2%;
+    border-style: groove;
+    border-radius: 2%;
 }

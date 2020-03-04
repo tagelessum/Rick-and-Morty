@@ -1,30 +1,23 @@
 import React from 'react';
-
-
+import styles from "./Bio.module.css";
+import {Card, Button, Jumbotron} from "react-bootstrap";
 class Bio extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="container_wrapper">
-                    <h1 className="container_h1">
-                        {this.props.b.name}
-                    </h1>
+            <div className="container mx-auto">
+              <div className={styles.parent}>
+              <div className=" card mx-auto mt-5">
+                <img src={this.props.b.image}  alt={this.props.b.name}></img>
                 </div>
-                <div>
-                    <img src={this.props.b.image} alt="Image of Character"></img>
-                </div>
-                <div>
-                    <p>
-                        Da NAM IS: {this.props.b.name}
-                    </p>
-                    <p>
-                        ITS A FUKKIN ALIEN: {this.props.b.species}
-                    </p>
-                    <p>
-                        EEEEWWW WAT IS DIS: {this.props.b.gender} HUMAN
-                    </p>
-                </div>
+
+               <div style={{ width: '18rem' }} className="card mx-auto mt-5">
+                <div className="card-header">Details</div>
+                <p className="card-text">Name: {this.props.b.name}</p>
+                <p className="card-text">Species: {this.props.b.species}</p>
+                <p className="card-text">Gender: {this.props.b.gender}</p>
+               </div>
+              </div>
             </div>
         );
     }
